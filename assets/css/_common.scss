@@ -1,0 +1,81 @@
+@use './color' as color;
+@use './mixin' as mixin;
+/****************************************
+
+common styles
+
+****************************************/
+html {
+    font-size: 62.5%;
+}
+body {
+    color: color.$textColor;
+    font-size: 1.5rem;
+    line-height: 1.75;
+    font-family: 'NotoSansJP', sans-serif;
+    -webkit-text-size-adjust: 100%;
+}
+img {
+    max-width: 100%;
+    vertical-align: baseline;
+}
+a {
+    color: color.$textColor;
+    text-decoration: none;
+    transition: opacity 0.3s;
+    @include mixin.mq(tab) {
+        &:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+    }
+}
+
+
+/* 共通スタイル */
+.inner {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+
+/* アニメーションスタイル */
+
+
+/* ヘッダースタイル */
+
+
+/* フッタースタイル */
+
+
+/* ページスタイル */
+section.codeSection {
+    .inner {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+    .copyBtn {
+        text-align: right;
+        #copy {
+            cursor: pointer;
+        }
+    }
+    pre {
+        background: #323232;
+        code {
+            color: #fff;
+        }
+    }
+}
+
+section.inputSection {
+    .inner {
+        textarea {
+            width: 100%;
+            height: 220px;
+            background: #eee;
+        }
+    }
+}

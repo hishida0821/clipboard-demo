@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Clipboard-demo</title>
+</head>
+<body>
+  <section class="codeSection">
+    <div class="inner">
+      <div class="copyBtn"><div id="copy">コピーする</div></div>
+      <pre><code id="code">
+        const copyButton = document.getElementById(&#039;copyButton&#039;)
+        const tagText = document.getElementById(&#039;tagText&#039;)
+        const message = document.getElementById(&#039;message&#039;)
+        
+        // クリップボードへコピー（ボタンをクリックした時）
+        copyButton.addEventListener(&#039;click&#039;, () =&gt; {
+          const tagValue = tagText.value
+          copyToClipboard(tagValue)
+        })
+        
+        // クリップボードへコピー（コピーの処理）
+        function copyToClipboard (tagValue) {
+          if (navigator.clipboard) {
+            return navigator.clipboard.writeText(tagValue).then(function () {
+              messageActive()
+            })
+          } else {
+            tagText.select()
+            document.execCommand(&#039;copy&#039;)
+            messageActive()
+          }
+        }
+        </code></pre>
+    </div>
+  </section>
+
+  <section class="inputSection">
+    <div class="inner">
+      <textarea name="" id="" placeholder="input here">
+
+      </textarea>
+    </div>
+  </section>
+
+
+  <script src="./assets/js/common.js"></script>
+</body>
+</html>
